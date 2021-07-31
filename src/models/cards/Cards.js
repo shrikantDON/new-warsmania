@@ -1,102 +1,119 @@
 import React from 'react';
 
-import "./cards.css";
 
-class Cards extends React.Component {
-    render() {
+import Card1 from './DifCards/Cards1.0.js';
+import card1_1 from '../../SrcContent/cardsDeta/cardsTyp1.js';
+
+import Card2 from './DifCards/Cards2.0.js';
+
+import card2_2 from '../../SrcContent/cardsDeta/cardstyp2';
+
+import  stl from "./cards.module.css";
+
+
+import Card3 from './DifCards/card typ 3/Cards3.0.js';
+
+
+
+
+
+
+
+ function creactCard2(val) {
+
+   return( <Card2
+
+    imgsrc={val.imgSrc}
+  
+    title={val.title}
+  
+    SomeInfo={val.SomeInfo}
+  
+  
+     
+  
+  
+      />);
+     
+ }
+
+
+
+
+
+function creactCard1(val,index){
+
+
+    return(
+    <Card1
+  
+  
+      src   ={val.src}
+  
+    title  ={val.title}
+
+    id={index}
+
+  
+
+      
+            />
+    );
+  
+   }
+  
+  
+
+
+
+function Cards( props){
+    
         return(
 <div className="wrapper">
 
-<h2><strong>All Games<span> <div className="wrapper">
+<h2  className={stl.HedingTpy2}>
+
+<strong>
+
+some Indias famous wars
+
+<span>
+ <div className={stl.wrapper}>
+
+ <div className={stl.cards}>
 
 
-
-<div className="cards">
-
-    <figure className="card">
-
-        <img src="https://static.toiimg.com/thumb/msid-70388666,imgsize-1251481,width-400,resizemode-4/70388666.jpg" />
-
-        <figcaption><h2>
-
-           
-
-        </h2></figcaption>
-
-    </figure>
-
-    <figure className="card">
-
-        <img src="https://m.media-amazon.com/images/I/51JuVVFpg0L.jpg" />
-
-        <figcaption  className="fig" >Stick Fight</figcaption>
-
-    </figure>
-
-    <figure className="card">
-
-        <img src="https://m.media-amazon.com/images/I/41stgBBfkhL.jpg" />
-
-        <figcaption>Minion Masters</figcaption>
-
-    </figure>
-
-    <figure className="card">
-
-        <img src="https://m.media-amazon.com/images/I/51K7tmRdaXL.jpg" />
-
-        <figcaption>KoseBoz!</figcaption>
-
-    </figure>
+{ card1_1.map(creactCard1)}
 
 </div>
 
-<h2><strong>What's new?</strong></h2>
 
-<div className="news">
 
-    <figure className="article">
+<h2  ><strong >  some about world war</strong></h2>
 
-        <img src="https://mrreiha.keybase.pub/codepen/hover-fx/news1.jpg" />
+<div className={stl.news}>
 
-        <figcaption>
+      
+    
 
-            <h3>New Item</h3>
 
-            <p>
+    {
 
-                In today’s update, two heads are better than one, and three heads are better than that, as the all-new Flockheart’s Gamble Arcana item for Ogre Magi makes its grand debut.
+     card2_2.map(creactCard2)
 
-            </p>
+    }
 
-        </figcaption>
 
-    </figure>
 
-    <figure className="article">
+</div> 
 
-        <img src="https://mrreiha.keybase.pub/codepen/hover-fx/news2.png" />
+{/* <Card3/> */}
 
-        <figcaption>
-
-            <h3>Update</h3>
-
-            <p>
-
-                Just in time for Lunar New Year and the Rat’s time in the cyclical place of honor, the Treasure of Unbound Majesty is now available.
-
-            </p>
-
-        </figcaption>
-
-    </figure>
-
-</div>
 
     </div></span></strong></h2>
 </div>
         );
-    }
+    
   }
 
 export default Cards;

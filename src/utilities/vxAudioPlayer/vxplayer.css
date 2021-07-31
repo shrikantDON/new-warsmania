@@ -1,0 +1,53 @@
+.vxIMG{
+
+
+z-index: 1;
+
+width: 100%;
+
+
+
+}
+
+.ppu{
+
+
+
+width:  200px;
+
+position: relative;
+
+
+}
+
+
+.vxpause{
+ 
+
+    opacity: 0;
+   left: 50%;
+   bottom: 13%;
+   transform: translate(-70%);
+    position: absolute;
+    width: 15%;
+    z-index: 3;
+  
+    border-radius: 50%;
+  }
+  
+  
+  .vxplay{
+  
+  
+  border-radius: 100%;
+    left: 50%;
+    bottom: 13%;
+    transform: translate(-60%);
+  position: absolute;
+  width: 25%;
+  z-index: 5;
+  
+  
+  
+  
+  }

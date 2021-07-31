@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Editor from "../src/editor/Editor.js";
 
 import Drawer from './models/drawer/Drawer.js';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import contentShow from './showCardContnent.js';
 // import App from './App';
 // import reportWebVitals from './reportWebVitals';
 
@@ -11,11 +13,21 @@ ReactDOM.render(
 
 
    <>
-   <Drawer/>
-    
+  
+     
+
+
+   <BrowserRouter>
+        <Route exact path='/'  component={Drawer} />
+        <Route exact path="/fgreejjrgrgfrmberdm" component={contentShow}/>
+        <Route exact path="/createwar" component={Editor}/>
+        
+      </BrowserRouter>
+
    </>
 
  ,
+ 
   document.getElementById('root')
 );
 
