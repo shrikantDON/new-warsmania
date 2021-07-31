@@ -1,7 +1,4 @@
-html {
-    box-sizing: border-box;
-  }
-  
+
   *,
   *:before,
   *:after {
@@ -9,10 +6,7 @@ html {
     margin: 0;
     padding: 0;
   }
-  
-  body {
-    background-color: black;
-  }
+ 
   
   .loader {
     position: absolute;
@@ -28,8 +22,8 @@ html {
     display: block;
     position: fixed;
     top: 0;
-    left: 0;
     background-color: black;
+    left: 0;
     z-index: 1;
   }
   
@@ -116,12 +110,12 @@ html {
     vertical-align: middle;
     list-style: none;
   }
-  .cont-list li {
+  .cont-list > li {
     display: inline-block;
     margin: 10px;
   }
-  .cont-list li.active span {
-    background-color: #ebebeb;
+  .cont-list li.activeSlideButton span {
+    background-color: white;
   }
   .cont-list span {
     display: block;

@@ -16,14 +16,14 @@ class SearchBar extends React.Component{
         return(
 
 
-<div class="search">
+<div className="search">
 
-<input type="checkbox" id="trigger" class="search__checkbox" />
-<label class="search__label-init" for="trigger"></label>
-<label class="search__label-active" for="trigger"></label>
-<div class="search__border"></div>
-<input type="text" class="search__input"  placeholder="Search a War" />
-<div class="search__close"></div>
+<input type="checkbox" id="trigger" className="search__checkbox" />
+<label className="search__label-init" for="trigger"></label>
+<label className="search__label-active" for="trigger"></label>
+<div className="search__border"></div>
+<input type="text" className="search__input"  placeholder="Search a War" />
+<div className="search__close"></div>
 </div>
 
         );

@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 import "./slider.css";
 
-import '../../fontawesome.js';
+
 
 
 
@@ -16,6 +16,8 @@ class Slider extends React.Component {
 // eslint-disable-next-line no-lone-blocks
 {
   
+
+  
     var i=0;
     var mask;
   $(document).ready(function() {
@@ -26,7 +28,7 @@ class Slider extends React.Component {
   
     var w = canvas.width = bgCanvas.width = $(window).width();
     var h = canvas.height = bgCanvas.height = $(window).outerHeight();
-    var h1 = canvas.height = bgCanvas.height = $(window).outerHeight(); 
+ 
     $(window).on('resize', function() {
       w = canvas.width = bgCanvas.width = $(window).width();
       h = canvas.height = bgCanvas.height = $(window).height();
@@ -61,40 +63,40 @@ class Slider extends React.Component {
     });
     var imgagesource = imagesources[0];
   
-    // function random(min, max) {
-    //   return Math.floor(Math.random() * (max - min + 1) + min);
-    // }
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
   
-    // function distance(x, y) {
-    //   var hypotenuse = Math.round(Math.sqrt(x * x + y * y));
-    //   return hypotenuse;
-    // }
+    function distance(x, y) {
+      var hypotenuse = Math.round(Math.sqrt(x * x + y * y));
+      return hypotenuse;
+    }
   
-    // function CreateStars() {
-    //   this.r = random(10, 20);
-    //   this.x = random(0, distance(halfW, halfH));
-    //   this.y = 0;
-    //   this.rotation = random(0, 360) * Math.PI / 180;
-    //   this.speed = random(0, .5) * Math.PI / 40;
+    function CreateStars() {
+      this.r = random(10, 20);
+      this.x = random(0, distance(halfW, halfH));
+      this.y = 0;
+      this.rotation = random(0, 360) * Math.PI / 180;
+      this.speed = random(0, .5) * Math.PI / 40;
   
-    //   this.draw = function() {
-    //     var grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
-    //     grd.addColorStop(0, '#fff');
-    //     grd.addColorStop(0.1, 'hsl(' + color + ', 61%, 33%)');
-    //     grd.addColorStop(0.25, 'hsl(' + color + ', 64%, 6%)');
-    //     grd.addColorStop(1, 'transparent');
-    //     bgCtx.save();
-    //     bgCtx.translate(halfW, halfH);
-    //     bgCtx.rotate(this.rotation);
-    //     bgCtx.beginPath();
-    //     bgCtx.fillStyle = grd;
-    //     bgCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
-    //     bgCtx.fill();
-    //     bgCtx.restore();
+      this.draw = function() {
+        var grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r);
+        grd.addColorStop(0, '#fff');
+        grd.addColorStop(0.1, 'hsl(' + color + ', 61%, 33%)');
+        grd.addColorStop(0.25, 'hsl(' + color + ', 64%, 6%)');
+        grd.addColorStop(1, 'transparent');
+        bgCtx.save();
+        bgCtx.translate(halfW, halfH);
+        bgCtx.rotate(this.rotation);
+        bgCtx.beginPath();
+        bgCtx.fillStyle = grd;
+        bgCtx.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        bgCtx.fill();
+        bgCtx.restore();
   
-    //     this.rotation += this.speed / 50;
-    //   };
-    // }
+        this.rotation += this.speed / 50;
+      };
+    }
   
     function CreateMask() {
       img.src = imgagesource;
@@ -129,8 +131,11 @@ class Slider extends React.Component {
         ctx.restore();
       };
     }
-  
+        
     function CreateSlider() {
+
+   
+
       this.view = $('.container');
       this.slide = $('.slide');
       this.controls = $('.cont-list').find('li');
@@ -140,9 +145,27 @@ class Slider extends React.Component {
       this.bg = $('.bg');
       this.duration = 800;
       this.current = 0;
+
+
+
+      this.timer = setInterval(()=>{
+            
+        if (self.view.is(':animated') || isAnimated === true) {
+          return;
+        }
+        if(self.current === self.slidesLength - 1){
+          self.current = 0;
+        }else
+        self.current++;
+
+        self.slidequeue(self.current);
+        
+        
+      },5000);
+ 
       this.easing = 'linear';
       this.changeSlide = function(pos) {
-        this.controls.removeClass('active').eq(pos).addClass('active');
+        this.controls.removeClass('activeSlideButton').eq(pos).addClass('activeSlideButton');
         this.view.animate({
           view: (100 * pos)
         }, {
@@ -241,22 +264,22 @@ class Slider extends React.Component {
       requestAnimationFrame(animateStars);
     };
   
-    // function init() {
-    //   slider = new CreateSlider();
-    //   mask = new CreateMask();
-    //   masks.push(mask);
-    //   for (i = 0; i < starsNum; i++) {
-    //     var star = new CreateStars();
-    //     stars.push(star);
-    //   }
-    //   slider.constraction();
-    //   animateMask.in();
-    //   animateStars();
-    // }
+    function init() {
+      slider = new CreateSlider();
+      mask = new CreateMask();
+      masks.push(mask);
+      for (i = 0; i < starsNum; i++) {
+        var star = new CreateStars();
+        stars.push(star);
+      }
+      slider.constraction();
+      animateMask.in();
+      animateStars();
+    }
   
     window.addEventListener('load', function() {
       $('.loader').hide();
-      // init();
+      init();
     });
     window.addEventListener('resize', function() {
       mask.draw();
@@ -268,27 +291,29 @@ class Slider extends React.Component {
 
 <div class="loader"></div>
 <canvas id="bg-canvas"></canvas>
+
+
 <div class="slider">
   <canvas id="in-canvas"></canvas>
   <div class="container">
     <div class="slide">
       <div class="bg">
-        <img src="https://www.clearias.com/up/First-World-War.png"   alt="hjb"/>
+        <img src="https://cdna.artstation.com/p/assets/images/images/008/865/978/large/kevin-le-dragon-dog-fight-finish-1.jpg?1515769676"   alt="hjb"/>
       </div>
     </div>
     <div class="slide">
       <div class="bg">
-        <img src="https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5a1NCUk1FQ1RUUjA"/>
+        <img src="https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1604683416727-JC0T67V27EOIBT6Z8KP1/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/image-asset.jpeg?format=2500w"/>
       </div>
     </div>
     <div class="slide">
       <div class="bg">
-        <img src="https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5MWhVdXk1UUIyanM"/>
+        <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/05/Death-Castlevania.jpg?q=50&fit=crop&w=740&h=370&dpr=1.5"/>
       </div>
     </div>
     <div class="slide">
       <div class="bg">
-        <img src="https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5MzBCbXppN2pTQ00"/>
+        <img src="https://www.indiewire.com/wp-content/uploads/2017/07/csv0_101_master-01_10_55_14-still018.png?w=780"/>
       </div>
     </div>
   </div>
@@ -296,7 +321,7 @@ class Slider extends React.Component {
     <div class="prev">
       </div>
         <ul class="cont-list">
-          <li class="active"><span></span></li>
+          <li class="activeSlideButton"><span></span></li>
           <li><span></span></li>
           <li><span></span></li>
           <li><span></span></li>

@@ -1,27 +1,34 @@
 @import url("https://fonts.googleapis.com/css?family=Alata&display=swap");
 * {
   box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
 }
+
+#vidB{
+
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  z-index: -10000000000;
+  bottom: 0;
+  right: 0;
+
+}
+
+
+
+
 :root {
   --speed: 0.85;
-  --primary: #fff;
+  --primary: rgb(199, 198, 198);
   --size: 30;
   --ease: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-body {
-  background: #fafafa;
-  font-family: 'Alata', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
-  padding: 0;
-}
-main {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-  -ms-scroll-snap-type: y mandatory;
-      scroll-snap-type: y mandatory;
-}
+
+
+/* 
 section {
   align-items: center;
   display: flex;
@@ -30,7 +37,7 @@ section {
   justify-content: center;
   scroll-snap-align: center;
   width: 100vw;
-}
+} */
 .menu {
   position: fixed;
 }
@@ -102,7 +109,7 @@ section {
   z-index: 2;
 }
 .menu__content:after {
-  background: black;
+  background: rgb(0, 0, 0);
   content: '';
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -112,8 +119,15 @@ section {
   top: 0;
   left: 0;
 }
+
+
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+
 .menu__item {
-  background:cyan;
+  background:rgb(27, 27, 26);
   border-radius: 50%;
   cursor: pointer;
   display: flex;
@@ -123,6 +137,7 @@ section {
   left: calc(var(--active-x, 0) * 1vw);
   overflow: hidden;
   place-items: center;
+
   position: absolute;
   text-align: center;
   top: calc(var(--active-y, 0) * 1vh);

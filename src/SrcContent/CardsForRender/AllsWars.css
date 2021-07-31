@@ -1,0 +1,96 @@
+/*** kargil wars css start **/
+
+
+:root {
+    --shadow-color: #FF9E9E;
+    --shadow-color-light: white;
+  }
+
+
+.glow{
+    /* margin: calc(50vh - 40px) auto 0 auto; */
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: "Archivo Black", "Archivo", sans-serif;
+    font-weight: normal;
+    display: block;
+    height: auto;
+   position: relative;
+     top: 10px;
+ left: 15px;
+   padding: 40px;
+  }
+  
+  .logo-1 {
+    color: white;
+    animation: neon 3s infinite;
+  }
+  
+  @keyframes neon {
+    0% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+      0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+    50% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 5px var(--shadow-color-light), 0 0 15px var(--shadow-color-light), 0 0 25px var(--shadow-color-light),
+      0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 60px var(--shadow-color), 0 0 80px var(--shadow-color), 0 0 110px var(--shadow-color), 0 0 210px var(--shadow-color);
+    }
+    100% {
+      text-shadow: -1px -1px 1px var(--shadow-color-light), -1px 1px 1px var(--shadow-color-light), 1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-light),
+      0 0 3px var(--shadow-color-light), 0 0 10px var(--shadow-color-light), 0 0 20px var(--shadow-color-light),
+      0 0 30px var(--shadow-color), 0 0 40px var(--shadow-color), 0 0 50px var(--shadow-color), 0 0 70px var(--shadow-color), 0 0 100px var(--shadow-color), 0 0 200px var(--shadow-color);
+    }
+  }
+
+
+
+
+
+#FirstDivConent{
+    font-family:'Black Ops One', 'Quando', serif;
+    color: #c5b5b6de;
+    font-size: 20px;
+   
+   position: relative;
+  
+   padding-left: 10px;
+   padding-right: 5px;
+   margin-top: 15px;
+  
+  }
+  
+  #artical2{
+  
+  
+    position: relative;
+   margin-top: 40px;
+   font-size: 20px;
+   color: rgb(223, 217, 217);
+  
+  }
+  
+  
+  #artical{
+  
+    position: relative;
+  }
+  
+  #artical:first-of-type::first-letter {
+    float: left;
+    font-size: 90px;
+    line-height: 1;
+    font-weight: bold;
+    margin-right: 9px
+   
+  }
+  
+
+/*** kargil wars css end **/
+
+
+
+
+
+

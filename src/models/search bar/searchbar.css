@@ -4,17 +4,11 @@
     padding: 0;
   }
   
-  html, body {
-    font-size: 62.5%;
-    height: 100%;
-  }
+ 
   
-  body {
-    background:none;
-  }
   
   .search {
-    position: absolute;
+    position: fixed;
     z-index: 900;
     top: 7%;
     left: 85%;
@@ -29,7 +23,7 @@
     left: 50%;
     width: 6rem;
     height: 100%;
-    border: 0.6rem solid rgb(171, 30, 236);
+    border: 0.6rem solid rgba(100, 99, 98, 0.87);
     border-radius: 10rem;
     transform: translate(-50%, -50%);
     transition: width 0.4s 0.4s;
@@ -49,7 +43,7 @@
     right: -1.6rem;
     width: 3rem;
     height: 0.6rem;
-    background: rgb(171, 30, 236);
+    background: rgba(100, 99, 98, 0.87);
     border-radius: 0.6rem;
     transform-origin: 100% 50%;
     transform: rotate(225deg) translateX(3rem);
@@ -64,7 +58,7 @@
     outline: none;
     border: none;
     font-size: 2.4rem;
-    color: rgb(171, 30, 236);
+    color: rgba(100, 99, 98, 0.87);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.2s;
